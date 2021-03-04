@@ -434,7 +434,7 @@ Future<Uint8List> loadFromRemote(
 
       return completer.future;
     } else {
-      return await http.get(_url, headers: header).timeout(timeoutDuration);
+      return await http.get(Uri.parse(_url), headers: header).timeout(timeoutDuration);
     }
   }, retryLimit, retryDuration, retryDurationFactor);
   if (_response != null) return _response.bodyBytes;
